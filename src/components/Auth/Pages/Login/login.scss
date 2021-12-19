@@ -1,0 +1,172 @@
+.login-page {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before {
+        content: "";
+        position: fixed;
+        top: -5vh;
+        bottom: -5vh;
+        left: -5vw;
+        right: -5vw;
+        z-index: -1;
+        width: 110vw;
+        height: 110vh;
+        background-image: url(../../../../assets/images/login-bg-default.webp);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: blur(10px);
+    }
+
+    .login-box {
+        background-color: #fff;
+        max-width: 350px;
+        min-width: 300px;
+        width: calc(100% - 2em);
+        min-height: 280px;
+        padding: 2em;
+        box-shadow: 0 2px 6px rgb(0 0 0 / 20%);
+        margin-bottom: 2em;
+        color: var(--darker);
+        display: grid;
+        grid-template-rows: 1.5em auto;
+        row-gap: 1em;
+
+        .login-header {
+            display: contents;
+
+            .logo-url-action {
+                img {
+                    height: 100%;
+                }
+            }
+        }
+        .login-content {
+            position: relative;
+            display: flex;
+            .login-username,
+            .login-confirm {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .input {
+                    h4 {
+                        font-size: 1.4rem;
+                        font-weight: 600;
+                        margin-bottom: 0.5em;
+                    }
+                    .error-message {
+                        position: relative;
+                        top: 0.3em;
+                        bottom: 0.3em;
+                        color: var(--danger);
+                        font-weight: 600;
+                    }
+                }
+                .help {
+                    display: flex;
+                    flex-direction: column;
+                    padding-bottom: 1em;
+                    a {
+                        padding-bottom: 1em;
+                        text-decoration: none;
+                        color: var(--primary);
+
+                        &.a-link {
+                            margin-left: 0.5em;
+                        }
+                    }
+                }
+                .to-action {
+                    justify-self: flex-end;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                }
+            }
+            .login-username {
+                .create-account {
+                    padding-bottom: 1em;
+                    a {
+                        text-decoration: none;
+                        color: var(--primary);
+
+                        &.a-link {
+                            margin-left: 0.5em;
+                        }
+                    }
+                }
+                &.active {
+                    animation-name: show-from-left;
+                }
+                &.inactive {
+                    display: none;
+                }
+            }
+            .login-confirm {
+                .back-to-username {
+                    display: flex;
+                    align-items: center;
+                    .username {
+                        margin-left: 0.5em;
+                        font-size: 1rem;
+                        font-weight: 500;
+                    }
+                }
+                .input-password {
+                    margin-top: -1em;
+                }
+
+                &.active {
+                    animation-name: show-from-right;
+                }
+                &.inactive {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .help-footer {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        padding: 0.5em 0.8em;
+        display: flex;
+        justify-content: flex-end;
+
+        &::after {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            height: 2.5em;
+            content: "";
+            background-color: rgba(255, 255, 255, 0.25);
+            filter: blur(8px);
+            z-index: -1;
+        }
+
+        a {
+            margin-left: 1em;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 550;
+            color: var(--darker);
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

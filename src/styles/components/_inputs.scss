@@ -1,0 +1,132 @@
+input {
+    width: 100%;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    box-sizing: border-box;
+    padding: 0 0.5rem;
+    outline: none;
+    color: var(--text-color);
+    text-overflow: ellipsis;
+
+    &.text-box {
+        outline: 0;
+        padding: 0.5em 0.3em 0.5em 0;
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: #1b1b1b;
+        border: none;
+        border-bottom: 1px solid;
+    }
+    &.standart {
+        padding-left: 0.5rem;
+        font-size: 0.85rem;
+        font-weight: 400;
+        border: 1px solid var(--text-color);
+    }
+    &.title-field {
+        border: none;
+        font-weight: 400;
+        color: var(--text-color);
+    }
+    &[type="checkbox"] {
+        width: auto;
+        height: auto;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background: none;
+        box-shadow: none;
+        outline: none;
+        cursor: pointer;
+        color: var(--text-color);
+    }
+}
+
+textarea {
+    box-sizing: border-box;
+    min-height: 4.286rem;
+    font-weight: 400;
+    line-height: 17px;
+    padding: 6px 8px;
+    color: rgb(50, 49, 48);
+    border: 1px solid rgb(96, 94, 92);
+    border-radius: 2px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.checkbox-container {
+    position: relative;
+    cursor: pointer;
+    label {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        cursor: pointer;
+        input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1.3rem;
+            height: 1.3rem;
+        }
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1.3rem;
+            height: 1.3rem;
+            background-color: #fff;
+            border-radius: 2px;
+            border: 1px solid var(--text-color);
+            box-sizing: border-box;
+            transition-property: background, border, border-color;
+            transition-duration: 200ms;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.23, 1);
+        }
+        input {
+            &:checked ~ .checkmark {
+                background-color: var(--primary);
+                border: 1px solid var(--primary);
+
+                &:after {
+                    content: "\EA01";
+                    font-family: "micon";
+                    font-size: 0.9rem;
+                    color: #fff;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+        .checkbox-label {
+            margin-left: 1.8rem;
+        }
+        &:hover {
+            input {
+                ~ .checkmark {
+                    &:after {
+                        content: "\EA01";
+                        font-family: "micon";
+                        font-size: 0.9rem;
+                        color: var(--neutral-color);
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+}
